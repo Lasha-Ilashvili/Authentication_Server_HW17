@@ -8,7 +8,6 @@ import com.example.authentication_server_hw17.databinding.FragmentRegisterBindin
 class RegisterFragment : BaseFragment<FragmentRegisterBinding>(FragmentRegisterBinding::inflate) {
 
     override fun setListeners() {
-
         binding.btnRegister.setOnClickListener {
             findNavController().popBackStack()
         }
