@@ -16,27 +16,31 @@
         android:textStyle="bold" />
 
     <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/etRegisterEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginBottom="48dp" />
+        android:layout_marginBottom="48dp"
+        android:hint="@string/hint_email"
+        android:inputType="textEmailAddress" />
 
     <androidx.appcompat.widget.AppCompatEditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center" />
-
-    <androidx.appcompat.widget.AppCompatEditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="48dp" />
-
-    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/etRegisterPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="96dp" />
+        android:hint="@string/hint_password"
+        android:inputType="textPassword" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/etRepeatRegisterPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="48dp"
+        android:hint="@string/hint_repeat_password"
+        android:inputType="textPassword" />
+
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnRegister"
