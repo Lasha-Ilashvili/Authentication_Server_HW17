@@ -5,6 +5,14 @@
     android:layout_height="match_parent"
     tools:context=".fragment.HomeFragment">
 
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center"
+        android:layout_marginTop="42dp"
+        android:text="@string/home"
+        android:textSize="42sp"
+        android:textStyle="bold" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnLogout"
