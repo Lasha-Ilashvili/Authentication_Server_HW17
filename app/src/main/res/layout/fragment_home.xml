@@ -14,15 +14,35 @@
         android:textSize="42sp"
         android:textStyle="bold" />
 
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginEnd="84dp"
+        android:layout_marginBottom="42dp"
+        android:text="@string/email"
+        android:textSize="28sp"
+        android:textStyle="bold" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvHomeEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="164dp"
+        android:layout_marginBottom="42dp"
+        android:textSize="28sp"
+        tools:text="eva.holt@reqres.in" />
+
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnLogout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:layout_marginBottom="164dp"
-        android:text="logout"
+        android:text="@string/logout"
         android:textAllCaps="false"
-        android:textSize="24dp"
+        android:textSize="24sp"
         android:textStyle="bold" />
 
 
