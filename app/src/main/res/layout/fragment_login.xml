@@ -18,19 +18,29 @@
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/etLoginEmail"
         android:layout_width="match_parent"
-        android:inputType="textEmailAddress"
-        android:hint="@string/hint_email"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginBottom="48dp" />
+        android:layout_marginBottom="48dp"
+        android:hint="@string/hint_email"
+        android:inputType="textEmailAddress" />
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/etLoginPassword"
         android:layout_width="match_parent"
-        android:inputType="textPassword"
-        android:hint="@string/hint_password"
         android:layout_height="wrap_content"
-        android:layout_gravity="center" />
+        android:layout_gravity="center"
+        android:hint="@string/hint_password"
+        android:inputType="textPassword" />
+
+    <androidx.appcompat.widget.AppCompatCheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="64dp"
+        android:padding="7dp"
+        android:text="@string/remember_me"
+        android:textSize="18sp" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnLogin"

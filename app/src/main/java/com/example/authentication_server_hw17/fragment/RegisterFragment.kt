@@ -8,6 +8,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
+import com.example.authentication_server_hw17.Events
 import com.example.authentication_server_hw17.base.BaseFragment
 import com.example.authentication_server_hw17.databinding.FragmentRegisterBinding
 import com.example.authentication_server_hw17.model.User
@@ -24,7 +25,7 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(FragmentRegisterB
         binding.btnRegister.setOnClickListener {
             val email = binding.etRegisterEmail.text.toString()
             val password = binding.etRegisterPassword.text.toString()
-            registerViewModel.register(User(email, password))
+            registerViewModel.onEvent(Events.Register(User(email, password)))
         }
     }
 
@@ -35,8 +36,12 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(FragmentRegisterB
                     when (result) {
                         is ResultResponse.Success -> {
                             setFragmentResult(
-                                "request_key",
-                                bundleOf("bundle_key" to result.token.token)
+                                "request_key_email",
+                                bundleOf("bundle_key" to result.token.email)
+                            )
+                            setFragmentResult(
+                                "request_key_password",
+                                bundleOf("bundle_key" to result.token.password)
                             )
                             findNavController().navigate(
                                 RegisterFragmentDirections.actionRegisterFragmentToLoginFragment()

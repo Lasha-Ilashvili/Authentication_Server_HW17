@@ -3,7 +3,7 @@ package com.example.authentication_server_hw17.view_model
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.authentication_server_hw17.datastore.DataStore
+import com.example.authentication_server_hw17.Events
 import com.example.authentication_server_hw17.model.ApiResponse
 import com.example.authentication_server_hw17.model.User
 import com.example.authentication_server_hw17.network.ApiClient.getLoginResult
@@ -17,12 +17,17 @@ class LoginViewModel : ViewModel() {
     private val _loginResult = MutableSharedFlow<ResultResponse<ApiResponse>>()
     val loginResult: SharedFlow<ResultResponse<ApiResponse>> = _loginResult
 
-    fun login(user: User) {
+    fun onEvent(event: Events) {
+        if (event is Events.Login) {
+            login(event.user)
+        }
+    }
+
+    private fun login(user: User) {
         viewModelScope.launch {
             try {
                 val response = getLoginResult().login(user)
                 if (response.isSuccessful) {
-                    DataStore.saveEmail(user.email)
                     val token = ApiResponse(user.email)
                     _loginResult.emit(ResultResponse.Success(token))
                 } else {

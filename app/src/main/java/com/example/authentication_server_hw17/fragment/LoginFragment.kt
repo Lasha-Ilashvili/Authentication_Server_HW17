@@ -7,8 +7,10 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
+import com.example.authentication_server_hw17.Events
 import com.example.authentication_server_hw17.base.BaseFragment
 import com.example.authentication_server_hw17.databinding.FragmentLoginBinding
+import com.example.authentication_server_hw17.datastore.DataStore
 import com.example.authentication_server_hw17.model.User
 import com.example.authentication_server_hw17.resources.ResultResponse
 import com.example.authentication_server_hw17.view_model.LoginViewModel
@@ -20,9 +22,13 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
     private val loginViewModel: LoginViewModel by viewModels()
 
     override fun setUp() {
-        setFragmentResultListener("request_key") { _, bundle ->
-            val (email, password) = (bundle.getString("bundle_key") ?: "").split("|")
+        setFragmentResultListener("request_key_email") { _, bundle ->
+            val email = bundle.getString("bundle_key") ?: ""
             binding.etLoginEmail.setText(email)
+        }
+
+        setFragmentResultListener("request_key_password") { _, bundle ->
+            val password = bundle.getString("bundle_key") ?: ""
             binding.etLoginPassword.setText(password)
         }
     }
@@ -32,7 +38,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
         binding.btnLogin.setOnClickListener {
             val email = binding.etLoginEmail.text.toString()
             val password = binding.etLoginPassword.text.toString()
-            loginViewModel.login(User(email, password))
+            loginViewModel.onEvent(Events.Login(User(email, password)))
         }
 
         binding.btnLoginRegister.setOnClickListener {
@@ -49,6 +55,11 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
                     when (result) {
                         is ResultResponse.Success -> {
                             val email = result.token.token
+
+                            if (binding.checkBox.isChecked) {
+                                DataStore.saveEmail(email)
+                            }
+
                             findNavController().navigate(
                                 LoginFragmentDirections.actionLoginFragmentToHomeFragment(
                                     email = email

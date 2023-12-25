@@ -9,7 +9,7 @@ import kotlinx.coroutines.launch
 
 class SplashViewModel : ViewModel() {
 
-    private val _sessionFlow = MutableSharedFlow<String>()
+    private val _sessionFlow = MutableSharedFlow<SplashFragmentNavigationEvent>()
     val sessionFlow get() = _sessionFlow.asSharedFlow()
 
     init {
@@ -19,8 +19,18 @@ class SplashViewModel : ViewModel() {
     private fun readSession() {
         viewModelScope.launch {
             DataStore.readEmail().collect {
-                _sessionFlow.emit(it)
+                _sessionFlow.emit(
+                    if (it.isEmpty())
+                        SplashFragmentNavigationEvent.NavigationLogin
+                    else
+                        SplashFragmentNavigationEvent.NavigationHome(it)
+                )
             }
         }
     }
+}
+
+sealed class SplashFragmentNavigationEvent {
+    object NavigationLogin : SplashFragmentNavigationEvent()
+    data class NavigationHome(val email: String) : SplashFragmentNavigationEvent()
 }

@@ -7,6 +7,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.example.authentication_server_hw17.base.BaseFragment
 import com.example.authentication_server_hw17.databinding.FragmentSplashBinding
+import com.example.authentication_server_hw17.view_model.SplashFragmentNavigationEvent
 import com.example.authentication_server_hw17.view_model.SplashViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -20,17 +21,15 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>(FragmentSplashBinding
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.sessionFlow.collect {
                     delay(1500)
-                    if (it.isNotEmpty()) {
-                        findNavController().navigate(
+
+                    findNavController().navigate(
+                        if (it is SplashFragmentNavigationEvent.NavigationHome)
                             SplashFragmentDirections.actionSplashFragmentToHomeFragment(
-                                email = it
+                                email = it.email
                             )
-                        )
-                    } else {
-                        findNavController().navigate(
+                        else
                             SplashFragmentDirections.actionSplashFragmentToLoginFragment()
-                        )
-                    }
+                    )
                 }
             }
         }
