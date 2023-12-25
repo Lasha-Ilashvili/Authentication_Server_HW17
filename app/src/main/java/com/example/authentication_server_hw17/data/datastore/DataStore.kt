@@ -1,4 +1,4 @@
-package com.example.authentication_server_hw17.datastore
+package com.example.authentication_server_hw17.data.datastore
 
 import android.content.Context
 import androidx.datastore.core.DataStore

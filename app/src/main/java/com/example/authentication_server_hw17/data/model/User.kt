@@ -1,4 +1,4 @@
-package com.example.authentication_server_hw17.model
+package com.example.authentication_server_hw17.data.model
 
 import com.squareup.moshi.JsonClass
 

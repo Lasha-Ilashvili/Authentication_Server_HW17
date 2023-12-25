@@ -1,6 +1,6 @@
-package com.example.authentication_server_hw17
+package com.example.authentication_server_hw17.presentation
 
-import com.example.authentication_server_hw17.model.User
+import com.example.authentication_server_hw17.data.model.User
 
 sealed class Events {
     data class Login(val user: User) : Events()

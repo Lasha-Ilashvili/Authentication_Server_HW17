@@ -1,4 +1,4 @@
-package com.example.authentication_server_hw17.fragment
+package com.example.authentication_server_hw17.presentation.register
 
 import android.widget.Toast
 import androidx.core.os.bundleOf
@@ -8,15 +8,16 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
-import com.example.authentication_server_hw17.Events
-import com.example.authentication_server_hw17.base.BaseFragment
+import com.example.authentication_server_hw17.data.model.User
+import com.example.authentication_server_hw17.data.resources.ResultResponse
 import com.example.authentication_server_hw17.databinding.FragmentRegisterBinding
-import com.example.authentication_server_hw17.model.User
-import com.example.authentication_server_hw17.resources.ResultResponse
-import com.example.authentication_server_hw17.view_model.RegisterViewModel
+import com.example.authentication_server_hw17.presentation.Events
+import com.example.authentication_server_hw17.presentation.base.BaseFragment
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
 
+@AndroidEntryPoint
 class RegisterFragment : BaseFragment<FragmentRegisterBinding>(FragmentRegisterBinding::inflate) {
 
     private val registerViewModel: RegisterViewModel by viewModels()

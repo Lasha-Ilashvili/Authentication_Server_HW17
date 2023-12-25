@@ -1,14 +1,12 @@
-package com.example.authentication_server_hw17.fragment
+package com.example.authentication_server_hw17.presentation.splash
 
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
-import com.example.authentication_server_hw17.base.BaseFragment
 import com.example.authentication_server_hw17.databinding.FragmentSplashBinding
-import com.example.authentication_server_hw17.view_model.SplashFragmentNavigationEvent
-import com.example.authentication_server_hw17.view_model.SplashViewModel
+import com.example.authentication_server_hw17.presentation.base.BaseFragment
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 

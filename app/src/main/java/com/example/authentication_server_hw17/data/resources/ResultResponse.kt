@@ -1,4 +1,4 @@
-package com.example.authentication_server_hw17.resources
+package com.example.authentication_server_hw17.data.resources
 
 sealed class ResultResponse<T> {
     data class Success<T>(val token: T) : ResultResponse<T>()

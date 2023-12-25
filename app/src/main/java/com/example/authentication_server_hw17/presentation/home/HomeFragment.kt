@@ -1,4 +1,4 @@
-package com.example.authentication_server_hw17.fragment
+package com.example.authentication_server_hw17.presentation.home
 
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -6,11 +6,9 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.example.authentication_server_hw17.Events
-import com.example.authentication_server_hw17.base.BaseFragment
+import com.example.authentication_server_hw17.presentation.Events
 import com.example.authentication_server_hw17.databinding.FragmentHomeBinding
-import com.example.authentication_server_hw17.view_model.HomeFragmentNavigationEvent
-import com.example.authentication_server_hw17.view_model.HomeViewModel
+import com.example.authentication_server_hw17.presentation.base.BaseFragment
 import kotlinx.coroutines.launch
 
 

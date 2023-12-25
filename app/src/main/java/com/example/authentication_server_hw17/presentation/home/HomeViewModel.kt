@@ -1,9 +1,9 @@
-package com.example.authentication_server_hw17.view_model
+package com.example.authentication_server_hw17.presentation.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.authentication_server_hw17.Events
-import com.example.authentication_server_hw17.datastore.DataStore
+import com.example.authentication_server_hw17.presentation.Events
+import com.example.authentication_server_hw17.data.datastore.DataStore
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch

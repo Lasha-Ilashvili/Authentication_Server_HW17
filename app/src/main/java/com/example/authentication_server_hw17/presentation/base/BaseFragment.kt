@@ -1,4 +1,4 @@
-package com.example.authentication_server_hw17.base
+package com.example.authentication_server_hw17.presentation.base
 
 import android.os.Bundle
 import android.view.LayoutInflater
