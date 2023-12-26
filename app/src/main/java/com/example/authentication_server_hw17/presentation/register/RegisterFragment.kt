@@ -11,7 +11,6 @@ import androidx.navigation.fragment.findNavController
 import com.example.authentication_server_hw17.data.model.User
 import com.example.authentication_server_hw17.data.resources.ResultResponse
 import com.example.authentication_server_hw17.databinding.FragmentRegisterBinding
-import com.example.authentication_server_hw17.presentation.Events
 import com.example.authentication_server_hw17.presentation.base.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -26,7 +25,7 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(FragmentRegisterB
         binding.btnRegister.setOnClickListener {
             val email = binding.etRegisterEmail.text.toString()
             val password = binding.etRegisterPassword.text.toString()
-            registerViewModel.onEvent(Events.Register(User(email, password)))
+            registerViewModel.onEvent(RegisterEvent.Register(User(email, password)))
         }
     }
 

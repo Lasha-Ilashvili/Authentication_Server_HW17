@@ -6,7 +6,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.example.authentication_server_hw17.presentation.Events
 import com.example.authentication_server_hw17.databinding.FragmentHomeBinding
 import com.example.authentication_server_hw17.presentation.base.BaseFragment
 import kotlinx.coroutines.launch
@@ -24,7 +23,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
 
     override fun setListeners() {
         binding.btnLogout.setOnClickListener {
-            viewModel.onEvent(Events.Logout)
+            viewModel.onEvent()
         }
     }
 

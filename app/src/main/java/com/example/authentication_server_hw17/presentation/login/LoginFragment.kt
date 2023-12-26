@@ -11,7 +11,6 @@ import com.example.authentication_server_hw17.data.datastore.DataStore
 import com.example.authentication_server_hw17.data.model.User
 import com.example.authentication_server_hw17.data.resources.ResultResponse
 import com.example.authentication_server_hw17.databinding.FragmentLoginBinding
-import com.example.authentication_server_hw17.presentation.Events
 import com.example.authentication_server_hw17.presentation.base.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -39,7 +38,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
         binding.btnLogin.setOnClickListener {
             val email = binding.etLoginEmail.text.toString()
             val password = binding.etLoginPassword.text.toString()
-            loginViewModel.onEvent(Events.Login(User(email, password)))
+            loginViewModel.onEvent(LoginEvent.Login(User(email, password)))
         }
 
         binding.btnLoginRegister.setOnClickListener {

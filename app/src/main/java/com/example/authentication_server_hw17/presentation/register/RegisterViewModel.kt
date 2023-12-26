@@ -5,7 +5,6 @@ import androidx.lifecycle.viewModelScope
 import com.example.authentication_server_hw17.data.model.User
 import com.example.authentication_server_hw17.data.resources.ResultResponse
 import com.example.authentication_server_hw17.domain.register.RegisterRepository
-import com.example.authentication_server_hw17.presentation.Events
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.SharedFlow
@@ -19,8 +18,8 @@ class RegisterViewModel @Inject constructor(private val registerRepository: Regi
     private val _registrationResult = MutableSharedFlow<ResultResponse<User>>()
     val registrationResult: SharedFlow<ResultResponse<User>> = _registrationResult
 
-    fun onEvent(event: Events) {
-        if (event is Events.Register) {
+    fun onEvent(event: RegisterEvent) {
+        if (event is RegisterEvent.Register) {
             register(event.user)
         }
     }

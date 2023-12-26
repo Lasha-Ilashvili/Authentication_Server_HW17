@@ -2,7 +2,6 @@ package com.example.authentication_server_hw17.presentation.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.authentication_server_hw17.presentation.Events
 import com.example.authentication_server_hw17.data.datastore.DataStore
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
@@ -13,10 +12,8 @@ class HomeViewModel : ViewModel() {
     private val _sessionFlow = MutableSharedFlow<HomeFragmentNavigationEvent>()
     val sessionFlow get() = _sessionFlow.asSharedFlow()
 
-    fun onEvent(event: Events) {
-        if (event is Events.Logout) {
-            logout()
-        }
+    fun onEvent() {
+        logout()
     }
 
     private fun logout() {

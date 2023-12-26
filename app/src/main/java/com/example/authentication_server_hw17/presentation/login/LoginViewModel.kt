@@ -7,7 +7,6 @@ import com.example.authentication_server_hw17.data.model.User
 import com.example.authentication_server_hw17.data.resources.ResultResponse
 import com.example.authentication_server_hw17.domain.ApiResponse
 import com.example.authentication_server_hw17.domain.login.LogInRepository
-import com.example.authentication_server_hw17.presentation.Events
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.SharedFlow
@@ -21,8 +20,8 @@ class LoginViewModel @Inject constructor(private val logInRepository: LogInRepos
     private val _loginResult = MutableSharedFlow<ResultResponse<ApiResponse>>()
     val loginResult: SharedFlow<ResultResponse<ApiResponse>> = _loginResult
 
-    fun onEvent(event: Events) {
-        if (event is Events.Login) {
+    fun onEvent(event: LoginEvent) {
+        if (event is LoginEvent.Login) {
             login(event.user)
         }
     }
